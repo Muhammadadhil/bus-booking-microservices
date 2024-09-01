@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const productSchema = mongoose.Schema(
+const busInfoSchema = mongoose.Schema(
     {
         name: {
             type: String,
@@ -14,7 +14,7 @@ const productSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        departureTime: {
+        departure: {
             type: Date,
             required: true,
         },
@@ -22,12 +22,12 @@ const productSchema = mongoose.Schema(
             type: Number,
         },
         status: {
-            type: Boolean,
+            type: String,
             required: true,
         },
     },
     { timestamps: true }
 );
 
-const Product = mongoose.model("Products", productSchema);
-export default Product;
+const Bus = mongoose.model("Buses", busInfoSchema);
+export default Bus;

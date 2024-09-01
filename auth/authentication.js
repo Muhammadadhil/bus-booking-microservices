@@ -18,7 +18,7 @@ const isAuthenticated = (req, res, next) => {
         return res.status(401).json({ message: "Token missing from authorization header" });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET || "123HELLO123HII321HELLO", (err, user) => {
         if (err) {
             return res.status(403).json({ message: "Invalid or expired token" });
         }
@@ -31,25 +31,25 @@ const isAuthenticated = (req, res, next) => {
 export const isAdminAuthenticated = (req, res, next) => {
     console.log("Authenticating the Admin !!");
     const authHeader = req.headers["authorization"];
-    console.log("authHeader:", authHeader);
 
     if (!authHeader) {
         return res.status(401).json({ message: "Authorization header missing" });
     }
 
     const token = authHeader.split(" ")[1];
+    console.log(token);
+    
 
     if (!token) {
         return res.status(401).json({ message: "Token missing from authorization header" });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET || "123HELLO123HII321HELLO", (err, user) => {
         if (err) {
             return res.status(403).json({ message: "Invalid or expired token" });
-        }else if(user.role!='admin'){
-            return res.status(403).json({ message:"You don't have the administration permission"});
+        } else if (user.role != "admin") {
+            return res.status(403).json({ message: "You don't have the administration permission" });
         }
-        console.log("user:", user);
 
         req.user = user;
         next();
