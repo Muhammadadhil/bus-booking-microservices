@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service BusesService {
+  rpc GetAvailableBuses(AvailableBusesRequest) returns (AvailableBusesResponse);
+}
+
+message AvailableBusesRequest {
+  string from = 1;
+  string to = 2;
+  string date = 3;
+}
+
+message Bus {
+  string busId = 1;
+  string busName = 2;
+  string departureTime = 3;
+  string arrival = 4;
+  string status = 5;
+}
+
+message AvailableBusesResponse {
+  repeated Bus buses = 1;
+}

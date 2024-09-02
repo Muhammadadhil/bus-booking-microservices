@@ -18,8 +18,8 @@ const busInfoSchema = mongoose.Schema(
             type: Date,
             required: true,
         },
-        duration:{
-            type: Number,
+        arrival: {
+            type: Date,
         },
         status: {
             type: String,
