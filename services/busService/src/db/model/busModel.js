@@ -23,7 +23,7 @@ const busInfoSchema = mongoose.Schema(
         },
         status: {
             type: String,
-            required: true,
+            default:"available"
         },
     },
     { timestamps: true }

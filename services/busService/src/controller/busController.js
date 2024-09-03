@@ -12,12 +12,13 @@ export const getBus=async (req,res)=>{
 
 export const addBus = async (req, res) => {
     try {
-        const { name, from, to, departure, duration, status } = req.body;
+        const { name, from, to, departure,arrival, duration, status } = req.body;
         const newbus = new busModel({
             name,
             from,
             to,
             departure,
+            arrival,
             duration,
             status,
         });

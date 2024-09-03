@@ -10,13 +10,29 @@ const bookingSchema = mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             required: true,
         },
+        busName: {
+            type: String,
+            required: true,
+        },
+        from: {
+            type: String,
+            required: true,
+        },
+        to: {
+            type: String,
+            required: true,
+        },
+        departure: {
+            type: String,
+            required: true,
+        },
         seatNumbers: {
             type: [Number],
             required: true,
         },
-        bookingDate:{
-            type:Date,
-            required:true
+        bookingDate: {
+            type: Date,
+            required: true,
         },
         status: {
             type: String,

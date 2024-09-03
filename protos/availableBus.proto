@@ -13,9 +13,11 @@ message AvailableBusesRequest {
 message Bus {
   string busId = 1;
   string busName = 2;
-  string departureTime = 3;
-  string arrival = 4;
-  string status = 5;
+  string from = 3;
+  string to = 4;
+  string departureTime = 5;
+  string arrival = 6;
+  string status = 7;
 }
 
 message AvailableBusesResponse {
