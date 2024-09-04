@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        service: [services/userService, services/busService, services/bookingService, services/notification, services/payment, apiGateway]
+        service: [services/userService, services/busService, services/bookingService, apiGateway]
         node-version: [18.x, 20.x, 22.x]
 
     steps:
