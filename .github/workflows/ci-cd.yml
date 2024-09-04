@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        service: [services/user-authentication, services/product, services/order, services/notification, apiGateway]
+        service: [services/userService, services/busService, services/bookingService, services/notification, services/payment, apiGateway]
         node-version: [18.x, 20.x, 22.x]
 
     steps:
@@ -55,14 +55,14 @@ jobs:
 
     - name: Build and push docker images
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/user-service:latest ./services/user-authentication
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/product-service:latest ./services/product
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/order-service:latest ./services/order
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/user-service:latest ./services/userService
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/bus-service:latest ./services/busService
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/booking-service:latest ./services/bookingService
         docker build -t ${{ secrets.DOCKER_USERNAME }}/notification-service:latest ./services/notification
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/ecommerce-apiGateway:latest ./apiGateway
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/bookingApp-apiGateway:latest ./apiGateway
 
         docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/product-service:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/order-service:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/bus-service:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/booking-service:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/notification-service:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/ecommerce-apiGateway:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/bookingApp-apiGateway:latest
