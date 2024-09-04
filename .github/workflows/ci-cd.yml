@@ -57,7 +57,7 @@ jobs:
         docker build -t muhammadadhil/booking-service:latest ./services/bookingService
         docker build -t muhammadadhil/bookingapp-apigateway:latest ./apiGateway
 
-        docker push -t muhammadadhil/user-service:latest
-        docker push -t muhammadadhil/bus-service:latest
-        docker push -t muhammadadhil/booking-service:latest
-        docker push -t muhammadadhil/bookingapp-apigateway:latest
+        docker push muhammadadhil/user-service:latest
+        docker push muhammadadhil/bus-service:latest
+        docker push muhammadadhil/booking-service:latest
+        docker push muhammadadhil/bookingapp-apigateway:latest
